@@ -1,3 +1,6 @@
 [submodule "commonlib"]
 	path = commonlib
 	url = git://git.mysociety.org/commonlib
+[submodule "vendor/plugins/translate_routes"]
+	path = vendor/plugins/translate_routes
+	url = git://github.com/raul/translate_routes.git
