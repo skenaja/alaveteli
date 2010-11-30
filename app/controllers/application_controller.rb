@@ -34,6 +34,7 @@ class ApplicationController < ActionController::Base
         logger.info("PID: #{Process.pid}\tCONSUME MEMORY: #{rss_after_action - rss_before_action} KB\tNow: #{rss_after_action} KB\t#{request.url}")
     end
 
+    before_filter :set_locale_from_url
     # Set cookie expiry according to "remember me" checkbox, as per "An easier
     # and more flexible hack" on this page:
     #   http://wiki.rubyonrails.org/rails/pages/HowtoChangeSessionOptions

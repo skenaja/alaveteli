@@ -4,10 +4,8 @@
         <script type="text/javascript" src="/jslib/spell/spellChecker.js"></script>
 
         <% if @profile_photo_javascript %>
-            <script type="text/javascript" src="/javascripts/jquery.js"></script>
-            <script type="text/javascript" src="/javascripts/jquery.Jcrop.js"></script>
-            <script type="text/javascript" src="/javascripts/profile_photo.js"></script>
-            <link rel="stylesheet" href="/stylesheets/jquery.Jcrop.css" type="text/css" >
+	 <%= javascript_include_tag "jquery", "jquery.Jcrop", "profile_photo", :cache => true %>
+ 	 <%= stylesheet_link_tag "jquery.Jcrop.css" %>
         <% end %>
 
         <title>
@@ -63,7 +61,6 @@
 
     </head>
     <body>
-
 <% # code for popup advert for a campaign etc.
 =begin
     <div id="everypage" class="jshide">
@@ -100,14 +97,14 @@
 =end
 %>
 
-    <div id="banner">
+    <div id="banner" style="background-image: url(/images/navimg/bnnr-temp-100pxd.<%=I18n.locale%>.jpg)">
     </div>
     <div id="header">
         <h1>
-            <a href="/">WhatDoTheyKnow?</a> 
+            <a href="/"  style="background-image: url(/images/navimg/logo-trans.<%=I18n.locale%>.png)"><%=t :WhatDoTheyKnow? %></a> 
         </h1>
         <div id="tagline">
-            Make and explore Freedom of Information requests
+            <%=t :tagline %>
         </div>
     </div>
 	<div id="mysoclogo">
@@ -117,28 +114,28 @@
         <% form_tag({:controller => "general", :action => "search_redirect"}, {:id => "navigation_search_form"}) do %>
            <p>
                <%= text_field_tag 'query', params[:query], { :size => 40, :id => "navigation_search_query" } %>
-               <%= submit_tag "Search" %>
+               <%= submit_tag t("search") %>
            </p>
         <% end %>
     </div>
 	<div id="topnav">
 		<ul id="navigation">
-            <li><%= link_to "Make request", frontpage_url %></li>
-			<li><%= link_to "View requests", request_list_url(:view => 'successful') %></li>
-			<li><%= link_to "View authorities", list_public_bodies_default %></li>
+		        <li><%= link_to t("Make request"), frontpage_url %></li>
+			<li><%= link_to t("View requests"), request_list_url(:view => 'successful') %></li>
+			<li><%= link_to t("View authorities"), list_public_bodies_default %></li>
 			<% if @user %>
-				<li><%=link_to "My requests", user_url(@user) %></li>
+				<li><%=link_to t("My requests"), user_url(@user) %></li>
 			<% end %>
-			<li><%= link_to "Read blog", blog_url %></li>
-			<li><%= link_to "Help", about_url %></li>
+			<li><%= link_to t("Read blog"), blog_url %></li>
+			<li><%= link_to t("Help"), about_url %></li>
 		</ul>
 		<% if not (controller.action_name == 'signin' or controller.action_name == 'signup') %>
 			<div id="logged_in_bar">
 			<% if @user %>
-				Hello, <%=h(@user.name)%>! 
-				(<%= link_to "Sign out", signout_url(:r => request.request_uri) %>)
+				<%=t :hello %>, <%=h(@user.name)%>! 
+				(<%= link_to t("Sign out"), signout_url(:r => request.request_uri) %>)
 			<% else %>
-				Hello! (<%= link_to "Sign in or sign up", signin_url(:r => request.request_uri) %>)
+				Hello! (<%= link_to t("Sign in or sign up"), signin_url(:r => request.request_uri) %>)
 			<% end %>
 			</div>
 		<% end %>

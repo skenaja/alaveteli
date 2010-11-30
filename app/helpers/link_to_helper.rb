@@ -186,15 +186,15 @@ module LinkToHelper
 
     # Basic date format
     def simple_date(date)
-        return date.strftime("%e %B %Y").strip
+        return I18n.l(date, :format => :simple_date)
     end
 
     def simple_time(date)
-        return date.strftime("%H:%M:%S").strip
+        return I18n.l(date, :format => :simple_time)
     end
 
     def year_from_date(date)
-        return date.strftime("%Y").strip
+        return I18n.l(date, :format => :year_from_date)
     end
 
   

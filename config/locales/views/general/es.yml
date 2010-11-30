@@ -1,0 +1,25 @@
+es:
+
+  homepage_heading: "Make or explore Freedom of Information requests"
+
+  search: Search
+
+  frontpage_instruction_top: First, type in the <strong>name of the UK public authority</strong> you'd <br>like information from. <strong>By law, they have to respond</strong>
+
+  frontpage_instruction_bottom: OR, <strong>search</strong> for information others have requested using WhatDoTheyKnow.com
+
+  why: ¿por aqui?
+
+  WhatDoTheyKnow?: ¿QuéSabenEllos?
+
+  hello: Hello
+
+  Sign out: Sign out
+
+  tagline: Make and explore Freedom of Information requests
+
+  time:
+    formats:
+      simple_time: "%H:%M:%S"
+      simple_date: "%e %B %Y"
+      year_from_date: "%Y"

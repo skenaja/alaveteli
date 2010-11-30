@@ -21,6 +21,9 @@ class GeneralController < ApplicationController
     # New, improved front page!
     def frontpage
         behavior_cache do
+            @test_goodbye = t(:goodbye)
+            @test_hello = t(:hello)
+            test_hell = t(:hello)
             # This is too slow
             #@popular_bodies = PublicBody.find(:all, :select => "*, (select count(*) from info_requests where info_requests.public_body_id = public_bodies.id) as c", :order => "c desc", :limit => 32)
 

@@ -71,6 +71,9 @@ Rails::Initializer.run do |config|
   # Make Active Record use UTC-base instead of local time
   config.active_record.default_timezone = :utc
   
+  # recursively load i18n YAML files
+  config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+  
   # See Rails::Configuration for more options
   ENV['RECAPTCHA_PUBLIC_KEY'] = MySociety::Config::get("RECAPTCHA_PUBLIC_KEY", 'x');
   ENV['RECAPTCHA_PRIVATE_KEY'] = MySociety::Config::get("RECAPTCHA_PRIVATE_KEY", 'x');

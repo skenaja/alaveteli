@@ -1,25 +1,23 @@
 <% view_cache :ttl => 5.minutes do %>
 
 <div id="frontpage_search">
-    <h1>Make or explore Freedom of Information requests</h1>
-
+    <h1><%=t :homepage_heading %></h1>
     <% form_tag({:action => "search_redirect"}, {:id => "search_form"}) do %>
        <p>
-           First, type in the <strong>name of the UK public authority</strong> you'd 
-           <br>like information from. <strong>By law, they have to respond</strong>
-           (<a href="/help/about">why?</a>).
+           <%= t('frontpage_instruction_top') %>
+           (<%= link_to t('why'), :controller => "help", :action => "about" %>).
            <br>
             
            <br>
            <%= text_field_tag 'query', params[:query], { :size => 30 } %>
            <%= hidden_field_tag 'bodies', 1 %>
-           <%= submit_tag "Search" %>
+           <%= submit_tag t("search") %>
            <br>
            e.g. <%=link_to 'Liverpool', search_url('liverpool', 'bodies')%>, <%=link_to 'MRSA', search_url('mrsa', 'bodies')%>, <%=link_to 'Treasury', search_url('treasury', 'bodies')%>
 
            <br>
            <br>
-           OR, <strong>search</strong> for information others have requested using WhatDoTheyKnow.com
+           <%= t('frontpage_instruction_bottom') %>
        </p>
     <% end %>
 </div>

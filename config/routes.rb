@@ -40,6 +40,7 @@ ActionController::Routing::Routes.draw do |map|
         request.details_request     '/details/request/:url_title', :action => 'details'
         request.similar_request     '/similar/request/:url_title', :action => 'similar'
 
+
         request.describe_state   '/request/:id/describe', :action => 'describe_state'
         request.show_response_no_followup    '/request/:id/response', :action => 'show_response'
         request.show_response    '/request/:id/response/:incoming_message_id', :action => 'show_response'
@@ -139,3 +140,4 @@ ActionController::Routing::Routes.draw do |map|
     # map.connect ':controller/service.wsdl', :action => 'wsdl'
 end
 
+ActionController::Routing::Translator.translate_from_file('config','i18n-routes.yml')
