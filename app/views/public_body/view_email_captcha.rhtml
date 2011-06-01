@@ -1,4 +1,4 @@
-<% @title = "View FOI email address for '" + h(@public_body.name) + "'" %>
+<% @title = _("View FOI email address for '{{public_body_name}}'",:public_body_name => h(@public_body.name)) %>
 
 <h1><%= _('View FOI email address for {{public_body_name}}',:public_body_name=>public_body_link(@public_body))%></h1>
 
@@ -11,5 +11,3 @@
     
     <p><%= submit_tag _("View email") %></p>
 <% end %>
-
-
