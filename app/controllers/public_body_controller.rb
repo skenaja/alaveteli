@@ -19,7 +19,7 @@ class PublicBodyController < ApplicationController
         @locale = self.locale_from_params()
         PublicBody.with_locale(@locale) do 
             @public_body = PublicBody.find_by_url_name_with_historic(params[:url_name])
-            raise "None found" if @public_body.nil? # XXX proper 404
+            raise _("None found") if @public_body.nil? # XXX proper 404
 
             # If found by historic name, redirect to new name
             redirect_to show_public_body_url(:url_name => @public_body.url_name) if 
@@ -107,7 +107,7 @@ class PublicBodyController < ApplicationController
             )
         end
         if @tag.size == 1
-            @description = _("beginning with") + " '" + @tag + "'"
+            @description = _("beginning with '{{letter}}'",:letter=>@tag)
         else
             @description = PublicBodyCategories::CATEGORIES_BY_TAG[@tag]
             if @description.nil?
